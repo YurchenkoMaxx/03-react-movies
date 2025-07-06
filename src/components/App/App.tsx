@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { fetchMovies } from '../../services/movieService';
-import type { Movie } from '../types/movie';
+import type { Movie } from '../../types/movie';
 import styles from './App.module.css';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import toast from 'react-hot-toast';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Loader from '../Loader/Loader';
 import MovieModal from '../MovieModal/MovieModal';
-
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -47,21 +46,15 @@ export default function App() {
     setSelectedMovie(null);
   };
   
-
-
-
   return (
     <div className={styles.app}>
           <SearchBar onSearch={onSearch} />
-
           {isLoading && <Loader />}
           {isError && <ErrorMessage />}
           {movies.length > 0 && <MovieGrid movies={movies} onSelect={handleSelect} />}
           {selectedMovie && (
   <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
 )}
-
-
     </div>
   );
 }
