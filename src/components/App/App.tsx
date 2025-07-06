@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
-import { fetchMovies } from '../services/movieService';
+import { fetchMovies } from '../../services/movieService';
 import type { Movie } from '../types/movie';
 import styles from './App.module.css';
 import MovieGrid from '../MovieGrid/MovieGrid';
